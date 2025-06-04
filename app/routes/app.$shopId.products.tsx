@@ -160,18 +160,7 @@ export default function ProductSelection() {
           </Layout.Section>
         )}
         
-        {!improvementEnabled && (
-          <Layout.Section>
-            <Card>
-              <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
-                <h3 className="font-semibold text-amber-900 mb-2">Improvement API Not Configured</h3>
-                <p className="text-amber-800">
-                  Please configure your improvement API settings to enable product improvements.
-                </p>
-              </div>
-            </Card>
-          </Layout.Section>
-        )}
+        {/* Improvement API is always enabled - removed the warning section */}
 
         <Layout.Section>
           <Card>
