@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - SHOPIFY_APP_URL=https://5.189.174.110:3003
+      - DATABASE_URL=postgresql://shopify:shopify123@db:5432/shopify_app
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: shopify_app
+      POSTGRES_USER: shopify
+      POSTGRES_PASSWORD: shopify123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+EOF < /dev/null
