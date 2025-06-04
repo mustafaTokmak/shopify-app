@@ -26,7 +26,7 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
     limit: 250,
   });
 
-  // Improvement API is always enabled for all stores
+  // Improvement API is always enabled for all stores (auto-configured)
   const improvementEnabled = true;
 
   return json({
@@ -128,7 +128,7 @@ export default function ProductSelection() {
   return (
     <Page
       title="Product Selection"
-      subtitle={`Shop: ${shopDomain}`}
+      subtitle={`Shop: ${shopDomain} - v2.0`}
       primaryAction={{
         content: `Improve ${selectedProducts.size} Products`,
         disabled: selectedProducts.size === 0 || isSubmitting,
